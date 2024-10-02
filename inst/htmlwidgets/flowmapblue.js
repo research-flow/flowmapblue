@@ -1,31 +1,28 @@
 HTMLWidgets.widget({
+  name: "flowmapblue",
 
-  name: 'flowmapblue',
+  type: "output",
 
-  type: 'output',
-
-  factory: function(el, width, height) {
-
+  factory: function (el, width, height) {
     // TODO: define shared variables for this instance
 
     return {
-
-      renderValue: function(x) {
+      renderValue: function (x) {
         flowmapBlue.init({
           locations: HTMLWidgets.dataframeToD3(x.locations),
           flows: HTMLWidgets.dataframeToD3(x.flows),
           container: el,
           mapboxAccessToken: x.mapboxAccessToken,
+          mapboxMapStyle: x.mapboxMapStyle,
           clustering: x.clustering,
           animation: x.animation,
           darkMode: x.darkMode,
         });
       },
 
-      resize: function(width, height) {
+      resize: function (width, height) {
         // TODO: code to re-render the widget with a new size
-      }
-
+      },
     };
-  }
+  },
 });
